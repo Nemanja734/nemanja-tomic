@@ -448,7 +448,7 @@ h5 {
 
 .education__modal-close {
     top: 10px;
-    right: 20px;
+    right: 30px;
     font-size: 3rem;
     cursor: pointer;
     position: absolute;
@@ -512,6 +512,8 @@ h5 {
 
 .experience__projects-item-button {
     margin-left: auto;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
     width: 15.3125rem;
 }
 
@@ -843,6 +845,10 @@ h5 {
     .education__item img {
         float: none;
         margin-bottom: 10px;
+    }
+
+    .education__modal-content {
+        width: 90%;
     }
 
     /* Experience */

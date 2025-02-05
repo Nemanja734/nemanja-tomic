@@ -374,10 +374,18 @@ h5 {
 
 .landing__column-icon {
     max-width: 30%;
+    transition: all 0.3s ease-out;
+}
+
+.landing__column-icon:hover {
+    transform: translateY(-5px);
 }
 
 .landing__profile-image {
     border-radius: 10px;
+    max-width: 300px;
+    width: 80%;
+    margin: 0 auto;
 }
 
 

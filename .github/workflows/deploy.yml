@@ -13,10 +13,11 @@ jobs:
         -   name: Checkout code
             uses: actions/checkout@v4
 
-        -   name: Set up SSH
-            uses: webfactory/ssh-agent@v0.8.0
-            with:
-                ssh-private-key: ${{ secrets.VPS_SSH }}
-
         -   name: Deploy using SCP
-            run: scp -r -P ${{ secrets.VPS_PORT }} ./* ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:/var/www/nemanja-tomic.de
+            env:
+                SSH: ${{ secrets.VPS_SSH }}
+            run: |
+                mkdir -p ~/.ssh
+                echo "$SSH" > ~/.ssh/vps-github
+                chmod 600 ~/.ssh/vps-github
+                scp -o StrictHostKeyChecking=no -i ~/.ssh/vps-github -P 6020 -r ./* ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:/var/www/nemanja-tomic.de
